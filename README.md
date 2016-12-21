@@ -31,7 +31,7 @@
             {% endif %}
                
             {# Then the default bundle's JavaScript: #}
-            {% include '@ArkounayImageBundle:assets:include_js.html.twig' %}
+            {% include '@ArkounayBlock/assets/include_js.html.twig' %}
             
 - In `routing.yml`, you will need to import the Ajax route:
         
