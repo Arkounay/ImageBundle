@@ -2,6 +2,8 @@
 
 ## Arkounay Image Bundle - Symfony Easier Doctrine image management
 
+![alt tag](http://outerark.com/symfony/arkounay_image_bundle.png)
+
 ### Getting Started
 
 - Download the files:
