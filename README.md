@@ -12,7 +12,7 @@
 
 - In `AppKernel.php` add the bundle:
         
-        new Arkounay\BlockBundle\ArkounayImageBundle()
+        new Arkounay\ImageBundle\ArkounayImageBundle()
         
 - Then, run the following command:
      
