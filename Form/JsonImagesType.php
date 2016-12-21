@@ -34,7 +34,8 @@ class JsonImagesType extends CollectionType
             'entry_type' => JsonImageType::class,
             'entry_options' => [],
             'delete_empty' => false,
-            'by_reference' => false
+            'by_reference' => false,
+            'required' => false
         ]);
 
         $resolver->setNormalizer('entry_options', $entryOptionsNormalizer);
