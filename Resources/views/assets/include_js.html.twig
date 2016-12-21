@@ -1,7 +1,5 @@
-{% if has_inline_edit_permissions() %}
-    <script>
-        var url = '{{ path('admin_ajax_image_upload') }}';
-        var addStr = '{{ 'Add'|trans }}';
-    </script>
-    <script src="{{ asset('bundles/arkounayimage/arkounay_image_bundle.js') }}"></script>
-{% endif %}
+<script>
+    var url = '{{ path('admin_ajax_image_upload') }}';
+    var addStr = '{{ 'Add'|trans }}';
+</script>
+<script src="{{ asset('bundles/arkounayimage/arkounay_image_bundle.js') }}"></script>

@@ -20,3 +20,54 @@
     background-color: #ffffc7;
     border: 1px dashed #ababab;
 }
+
+.arkounay-image-list .arkounay-image {
+    /*height: 81px;*/
+    padding-top: 2px;
+    border: 1px solid #cccccc;
+    margin-bottom: 5px;
+}
+
+.arkounay-image-list .arkounay-image img {
+    max-width: 100%;
+    max-height: 75px;
+    margin: 0 auto;
+}
+
+.arkounay-image-list .collection-actions {
+    clear: both;
+}
+
+.arkounay-image-list .actions .collection-remove {
+    position: relative;
+    right: 15px;
+    border-radius: 0;
+    border: none;
+    bottom: 2px;
+}
+
+.arkounay-image .img-preview {
+    text-align: center;
+}
+
+.arkounay-image .img-description table {
+    width: 100%;
+}
+
+.arkounay-image table td {
+    padding-bottom: 3px;
+}
+
+.arkounay-image .table-sort {
+    position: relative;
+    top: 12px;
+}
+
+.arkounay-image .upload {
+    margin-top: 5px;
+}
+
+.arkounay-image .upload .arkounay-image-button-upload {
+    display: block;
+    margin-bottom: 3px;
+}
