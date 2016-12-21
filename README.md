@@ -2,15 +2,17 @@
 
 ## Arkounay Image Bundle - Symfony Easier Doctrine image management
 
+![alt tag](http://outerark.com/symfony/arkounay_image_bundle.png)
+
 ### Getting Started
 
 - Download the files:
         
-        composer require arkounay/image-bundle@dev
+        composer require arkounay/image-bundle "dev-master"
 
 - In `AppKernel.php` add the bundle:
         
-        new Arkounay\BlockBundle\ArkounayImageBundle()
+        new Arkounay\ImageBundle\ArkounayImageBundle()
         
 - Then, run the following command:
      
@@ -29,7 +31,7 @@
             {% endif %}
                
             {# Then the default bundle's JavaScript: #}
-            {% include '@ArkounayImageBundle:assets:include_js.html.twig' %}
+            {% include '@ArkounayBlock/assets/include_js.html.twig' %}
             
 - In `routing.yml`, you will need to import the Ajax route:
         
