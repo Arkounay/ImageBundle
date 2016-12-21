@@ -74,6 +74,7 @@ $(function(){
     }
 
 
+    var arkounayImageSel = '.arkounay-image';
 
     $(document).on('click', '.arkounay-image-button-upload', function (e) {
         e.preventDefault();
@@ -86,17 +87,17 @@ $(function(){
         submitFile(file, $(this).closest('.arkounay-image'));
     });
 
-    $(document).on('drag dragstart dragend dragover dragenter dragleave drop', '.arkounay-image', function(e) {
+    $(document).on('drag dragstart dragend dragover dragenter dragleave drop', arkounayImageSel, function(e) {
         e.preventDefault();
         e.stopPropagation();
     })
-    .on('dragover dragenter', '.arkounay-image', function() {
+    .on('dragover dragenter', arkounayImageSel, function() {
         $(this).addClass('is-dragover');
     })
-    .on('dragleave dragend drop', '.arkounay-image', function() {
+    .on('dragleave dragend drop', arkounayImageSel, function() {
         $(this).removeClass('is-dragover');
     })
-    .on('drop', '.arkounay-image', function(e) {
+    .on('drop', arkounayImageSel, function(e) {
         submitFile(e.originalEvent.dataTransfer.files[0],  $(this))
     });
 
@@ -105,7 +106,7 @@ $(function(){
     });
 
 
-    $.each($('.arkounay-image'), function(i, el) {
+    $.each($(arkounayImageSel), function(i, el) {
         updateImageFromPath($(el));
     });
 
