@@ -1,0 +1,33 @@
+{
+  "name": "arkounay/image-bundle",
+  "type": "symfony-bundle",
+  "description": "Easier image upload form bundle with Doctrine",
+  "keywords": [
+    "symfony",
+    "image",
+    "form",
+    "doctrine",
+    "bundle"
+  ],
+  "homepage": "https://github.com/Arkounay/ImageBundle",
+  "authors": [
+    {
+      "name": "Antonin M",
+      "email": "arkanen@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "symfony/framework-bundle": "^3.0",
+    "twig/twig": "^1.3",
+    "twig/twig": "^1.3",
+    "doctrine/orm": "^2.5",
+    "doctrine/doctrine-bundle": "^1.6"
+  },
+  "autoload": {
+    "psr-0": {
+      "Arkounay\\ImageBundle": ""
+    }
+  },
+  "target-dir": "Arkounay/ImageBundle"
+}

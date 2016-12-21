@@ -1,0 +1,151 @@
+{% block arkounay_image_widget %}
+    {% spaceless %}
+        <div class="arkounay-image">
+            <div class="row">
+                <div class="col-md-8">
+                    path : {{ form_widget(form.path, {attr: {class: 'arkounay-image-path'}}) }}
+                    alt : {{ form_widget(form.alt, {attr: {class: 'arkounay-image-alt'}}) }}
+                    <br>
+                    <progress></progress>
+                </div>
+                <div class="col-md-4">
+                    <img src="" alt="">
+                </div>
+            </div>
+
+            <br>
+
+            <button class="btn btn-default btn-sm arkounay-image-button-upload" type="button"><i class="fa fa-upload"></i> {% trans %}arkounay.browse{% endtrans %}</button>
+            {{ form_widget(form.file) }}
+            {# <button class="btn btn-default btn-sm" type="button"><i class="fa fa-download"></i> Choisir à partir du serveur</button> #}
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block arkounay_images_widget %}
+    {% spaceless %}
+        {% if prototype is defined %}
+            {% set attr = attr|merge({'data-prototype': _self.render_image(prototype)}) %}
+            {% set attr = attr|merge({'data-prototype-name': prototype.vars.name}) %}
+        {% endif %}
+        {% set attr = attr|merge({'data-allow-add': allow_add ? 1 : 0}) %}
+        {% set attr = attr|merge({'data-allow-remove': allow_delete ? 1 : 0 }) %}
+        {% set attr = attr|merge({'data-name-prefix': full_name}) %}
+
+        <div id="{{ form.vars.id }}" class="media-list arkounay-image-list arkounay-image-collection" {% for k, v in attr %} {{ k }}="{{ v|e }}"{% endfor %}>
+            {% for image in form %}
+                {{ _self.render_image(image) }}
+            {% endfor %}
+        </div>
+
+        {# <div class="clearfix">
+            <button class="btn btn-default btn-sm" type="button"><i class="fa fa-download"></i> Choisir à partir du serveur</button>
+            <button class="btn btn-default btn-sm js-arkounay-image-add" type="button"><i class="fa fa-download"></i> Test</button>
+        </div> #}
+
+    {% endspaceless %}
+
+    <style>
+        .arkounay-image-list .arkounay-image {
+            /*height: 81px;*/
+            padding-top: 2px;
+            border: 1px solid #cccccc;
+            margin-bottom: 5px;
+        }
+
+        .arkounay-image-list .arkounay-image img {
+            max-width: 100%;
+            max-height: 75px;
+            margin: 0 auto;
+        }
+
+        .arkounay-image-list .collection-actions {
+            clear: both;
+        }
+
+        .arkounay-image-list .actions .collection-remove {
+            position: relative;
+            right: 15px;
+            border-radius: 0;
+            border: none;
+            bottom: 2px;
+        }
+
+        .arkounay-image .img-preview {
+            text-align: center;
+        }
+
+        .arkounay-image .img-description table {
+            width: 100%;
+        }
+
+        .arkounay-image table td {
+            padding-bottom: 3px;
+        }
+
+        .arkounay-image .table-sort {
+            position: relative;
+            top: 12px;
+        }
+
+        .arkounay-image .upload {
+            margin-top: 5px;
+        }
+
+        .arkounay-image .upload .arkounay-image-button-upload {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+    </style>
+{% endblock %}
+
+{% macro render_image(image) %}
+    {% spaceless %}
+        <div class="arkounay-image">
+            <div class="row">
+
+                <div class="col-sm-1">
+                    <table class="table-sort">
+                        <tr>
+                            <td><a href="#" class="collection-up btn btn-default btn-x-sm"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="collection-down btn btn-default btn-x-sm"><span class="glyphicon glyphicon-chevron-down"></span></a></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="img-preview col-sm-2">
+                    <img src="" alt="">
+                </div>
+
+                <div class="img-description col-sm-5">
+                    <table>
+                        <tr>
+                            <td>{{ form_label(image.path, null, {label_attr: {class: 'control-label'}}) }}</td>
+                            <td>{{ form_widget(image.path, {attr: {class: 'arkounay-image-path'}}) }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form_label(image.alt, null, {label_attr: {class: 'control-label'}}) }}</td>
+                            <td>{{ form_widget(image.alt, {attr: {class: 'arkounay-image-alt'}}) }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="col-sm-3 upload">
+                    <button class="btn btn-default btn-sm arkounay-image-button-upload" type="button"><i class="fa fa-upload"></i> {{ 'arkounay.browse'|trans }} </button>
+                    {{ form_widget(image.file) }}
+                    {# <button class="btn btn-default btn-sm" type="button"><i class="fa fa-download"></i> Choisir à partir du serveur</button> #}
+                    <files rel=""></files>
+                </div>
+
+                <div class="actions pull-right">
+                    <a href="#" class="js-remove-collection btn btn-default collection-remove collection-action"><span class="glyphicon glyphicon-remove"></span></a>
+                </div>
+
+                <progress></progress>
+            </div>
+        </div>
+    {% endspaceless %}
+{% endmacro %}

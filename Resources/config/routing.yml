@@ -1,0 +1,3 @@
+arkounay_image:
+    resource: "@ArkounayImageBundle/Controller/"
+    type:     annotation
