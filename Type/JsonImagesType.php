@@ -28,9 +28,11 @@ class JsonImagesType extends JsonArrayType
         }
 
         /** @var ArrayCollection|Image[] $value */
-        foreach ($value as $item) {
-            if ($item->getPath() === null) {
-                $value->removeElement($item);
+        if (!empty($value)) {
+            foreach ($value as $item) {
+                if ($item->getPath() === null) {
+                    $value->removeElement($item);
+                }
             }
         }
 

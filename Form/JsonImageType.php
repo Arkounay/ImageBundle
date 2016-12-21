@@ -16,13 +16,16 @@ class JsonImageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('path', TextType::class)
+            ->add('path', TextType::class, [
+                'required' => false,
+            ])
             ->add('alt', TextType::class, [
                 'required' => false
             ])
             ->add('file', FileType::class, [
                 'attr' => ['class' => 'arkounay-image-file-input'],
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
             ])
         ;
     }
