@@ -74,48 +74,40 @@ $(function(){
     }
 
 
-    function applyDragAndDrop() {
-        var $pacImages = $('.arkounay-image');
-        $pacImages.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-        })
-            .on('dragover dragenter', function() {
-                $(this).addClass('is-dragover');
-            })
-            .on('dragleave dragend drop', function() {
-                $(this).removeClass('is-dragover');
-            })
-            .on('drop', function(e) {
-                submitFile(e.originalEvent.dataTransfer.files[0],  $(this))
-            });
 
-        $pacImages.find('.arkounay-image-path').change(function () {
-            updateImageFromPath($(this).closest('.arkounay-image'));
-        })
-    }
-    applyDragAndDrop();
-
-    $('.arkounay-image-button-upload').click(function (e) {
+    $(document).on('click', '.arkounay-image-button-upload', function (e) {
         e.preventDefault();
+        e.stopPropagation();
         $(this).parent().find('.arkounay-image-file-input').click();
     });
 
-    $('.arkounay-image-file-input').change(function () {
+    $(document).on('change', '.arkounay-image-file-input', function () {
         var file = this.files[0];
         submitFile(file, $(this).closest('.arkounay-image'));
     });
 
+    $(document).on('drag dragstart dragend dragover dragenter dragleave drop', '.arkounay-image', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    })
+    .on('dragover dragenter', '.arkounay-image', function() {
+        $(this).addClass('is-dragover');
+    })
+    .on('dragleave dragend drop', '.arkounay-image', function() {
+        $(this).removeClass('is-dragover');
+    })
+    .on('drop', '.arkounay-image', function(e) {
+        submitFile(e.originalEvent.dataTransfer.files[0],  $(this))
+    });
+
+    $(document).on('change', '.arkounay-image-path', function () {
+        updateImageFromPath($(this).closest('.arkounay-image'));
+    });
+
+
     $.each($('.arkounay-image'), function(i, el) {
         updateImageFromPath($(el));
     });
-
-    /*$('.js-arkounay-image-add').click(function(e){
-     e.preventDefault();
-     var $el = $(this).parent().parent().find('.arkounay-image-collection');
-     var html = $el.data('prototype');
-     $el.append($("<textarea/>").html(html).text());
-     });*/
 
     $('.arkounay-image-collection').collection({
         up: '<a href="#">&#x25B2;</a>',
@@ -123,10 +115,7 @@ $(function(){
         add: '<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> ' + addStr + '</a>',
         remove: '<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>',
         duplicate: '<a href="#">[ # ]</a>',
-        add_at_the_end: true,
-        after_add: function(element) {
-            applyDragAndDrop();
-        }
+        add_at_the_end: true
     });
 
 });
