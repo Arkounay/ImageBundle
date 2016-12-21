@@ -6,7 +6,7 @@
 
 - Download the files:
         
-        composer require arkounay/image-bundle@dev
+        composer require arkounay/image-bundle "@dev"
 
 - In `AppKernel.php` add the bundle:
         
