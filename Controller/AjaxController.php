@@ -3,11 +3,17 @@
 namespace Arkounay\ImageBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class AjaxController
+ * @package Arkounay\ImageBundle\Controller
+ * @Security("is_granted('ROLE_ADMIN')")
+ */
 class AjaxController extends Controller
 {
 

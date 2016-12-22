@@ -95,3 +95,6 @@ Some [ninsuo/symfony-collection](https://github.com/ninsuo/symfony-collection)'s
 ### Editing the form HTML
 Check `Resources/views/forms/fields.html.twig`
 
+### Other
+- Only `ROLE_ADMIN` can upload images
+
