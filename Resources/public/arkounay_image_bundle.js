@@ -110,7 +110,7 @@ $(function(){
         updateImageFromPath($(el));
     });
 
-    $collection = $('.arkounay-image-collection');
+    var $collection = $('.arkounay-image-collection');
     if ($collection.length) {
         $collection.collection({
             up: '<a href="#">&#x25B2;</a>',
