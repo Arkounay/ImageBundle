@@ -10,7 +10,6 @@ class JsonImageType extends JsonArrayType
 {
     const TYPE = 'json_image';
 
-
     public function getName()
     {
         return self::TYPE;

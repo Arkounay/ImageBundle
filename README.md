@@ -49,18 +49,23 @@
 ### Usage
     
 In an entity, you can now add the new `json_image` types:
-
+    
     /**
      * @var Image
      * @ORM\Column(type="json_image")
      */
-    protected $image;
+    private $image;
     
     /**
      * @var ArrayCollection|Image[]
      * @ORM\Column(type="json_images")
      */
-    protected $imageCollection;
+    private $imageCollection;
+
+    public function __construct()
+    {
+        $this->imageCollection = new ArrayCollection();
+    }
     
 You can bound these fields to a form using its corresponding type:
 

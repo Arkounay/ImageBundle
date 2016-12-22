@@ -58,13 +58,13 @@
                 <div class="img-description {% if collection %}col-sm-9 img-description-collection {% else %}col-sm-10{% endif %}">
                     <table>
                         <tr>
-                            <td class="td-path">{{ form_label(image.path, null, {label_attr: {class: 'control-label'}}) }}</td>
+                            <td class="td-label td-path">{{ form_label(image.path, null, {label_attr: {class: 'control-label'}}) }}</td>
                             <td>{{ form_widget(image.path, {attr: {class: 'arkounay-image-path'}}) }}</td>
                         </tr>
 
                         {% if image.vars.allow_alt %}
                             <tr>
-                                <td>{{ form_label(image.alt, null, {label_attr: {class: 'control-label'}}) }}</td>
+                                <td class="td-label">{{ form_label(image.alt, null, {label_attr: {class: 'control-label'}}) }}</td>
                                 <td>{{ form_widget(image.alt, {attr: {class: 'arkounay-image-alt'}}) }}</td>
                             </tr>
                         {% endif %}
