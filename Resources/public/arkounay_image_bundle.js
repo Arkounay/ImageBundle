@@ -110,13 +110,16 @@ $(function(){
         updateImageFromPath($(el));
     });
 
-    $('.arkounay-image-collection').collection({
-        up: '<a href="#">&#x25B2;</a>',
-        down: '<a href="#">&#x25BC;</a>',
-        add: '<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> ' + addStr + '</a>',
-        remove: '<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>',
-        duplicate: '<a href="#">[ # ]</a>',
-        add_at_the_end: true
-    });
+    $collection = $('.arkounay-image-collection');
+    if ($collection.length) {
+        $collection.collection({
+            up: '<a href="#">&#x25B2;</a>',
+            down: '<a href="#">&#x25BC;</a>',
+            add: '<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> ' + addStr + '</a>',
+            remove: '<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>',
+            duplicate: '<a href="#">[ # ]</a>',
+            add_at_the_end: true
+        });
+    }
 
 });
