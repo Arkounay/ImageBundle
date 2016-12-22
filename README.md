@@ -43,8 +43,8 @@
         doctrine:
             dbal:
                 types:
-                    json_image:  Arkounay\ImageBundle\Type\JsonImageType
-                    json_images:  Arkounay\ImageBundle\Type\JsonImagesType
+                    json_image: Arkounay\ImageBundle\Type\JsonImageType
+                    json_images: Arkounay\ImageBundle\Type\JsonImagesType
                     
 ### Usage
     
