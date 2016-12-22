@@ -43,22 +43,22 @@
         doctrine:
             dbal:
                 types:
-                    arkounay_image:  Arkounay\ImageBundle\Type\JsonImageType
-                    arkounay_images:  Arkounay\ImageBundle\Type\JsonImagesType
+                    json_image:  Arkounay\ImageBundle\Type\JsonImageType
+                    json_images:  Arkounay\ImageBundle\Type\JsonImagesType
                     
 ### Usage
     
-In an entity, you can now add the new Image Types:
+In an entity, you can now add the new `json_image` types:
 
     /**
      * @var Image
-     * @ORM\Column(type="arkounay_image")
+     * @ORM\Column(type="json_image")
      */
     protected $image;
     
     /**
      * @var ArrayCollection|Image[]
-     * @ORM\Column(type="arkounay_images")
+     * @ORM\Column(type="json_images")
      */
     protected $imageCollection;
     
