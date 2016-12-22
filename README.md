@@ -24,7 +24,7 @@
         
             <link rel="stylesheet" href="{{ asset('bundles/arkounayimage/arkounay_image_bundle.css') }}">
 
-    - JS (**requires [jQuery](https://jquery.com/) and [ninsuo/symfony-collection](https://github.com/ninsuo/symfony-collection)**):
+    - JS (**requires [jQuery](https://jquery.com/), [ninsuo/symfony-collection](https://github.com/ninsuo/symfony-collection) and optionnaly [bootstrap](http://getbootstrap.com/)**):
     
             {# Import jQuery: #}
                 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -73,5 +73,20 @@ You can bound these fields to a form using its corresponding type:
         ->add('image', JsonImageType::class)
         ->add('imageCollection', JsonImagesType::class);
     
+### Options:
+
+**JsonImageType:**
+- `'allow_alt' => true` allows the user to specify an alt
+- `'path_readonly' => false` prevents the user from manually changing the path (it only adds a "readonly" attribute to the corresponding HTML input) 
+
+**JsonsImageType:**
+
+Some [ninsuo/symfony-collection](https://github.com/ninsuo/symfony-collection)'s options are available directly:
+- `'min' => 0`
+- `'max' => 100`
+- `'init_with_n_elements' => 1`
+- `'add_at_the_end' => true`
+
 ### Editing the form HTML
 Check `Resources/views/forms/fields.html.twig`
+

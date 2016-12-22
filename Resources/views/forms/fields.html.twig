@@ -11,6 +11,10 @@
             {% set attr = attr|merge({'data-prototype-name': prototype.vars.name}) %}
         {% endif %}
         {% set attr = attr|merge({'data-allow-add': allow_add ? 1 : 0}) %}
+        {% set attr = attr|merge({'data-max': data_max ? data_max : 100}) %}
+        {% set attr = attr|merge({'data-min': data_min ? data_min : 0}) %}
+        {% set attr = attr|merge({'data-init-with-n-elements': data_init_with_n_elements ? data_init_with_n_elements : 1}) %}
+        {% set attr = attr|merge({'data-add-at-the-end': data_add_at_the_end ? data_add_at_the_end : false}) %}
         {% set attr = attr|merge({'data-allow-remove': allow_delete ? 1 : 0 }) %}
         {% set attr = attr|merge({'data-name-prefix': full_name}) %}
 
@@ -37,43 +41,49 @@
                 {% if collection %}
                     <div class="col-sm-1">
                         <table class="table-sort">
-                            <tr>
+                            <tr class="table-sort-up">
                                 <td><a href="#" class="collection-up btn btn-default btn-x-sm"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
                             </tr>
-                            <tr>
+                            <tr class="table-sort-down">
                                 <td><a href="#" class="collection-down btn btn-default btn-x-sm"><span class="glyphicon glyphicon-chevron-down"></span></a></td>
                             </tr>
                         </table>
                     </div>
                 {% endif %}
+
                 <div class="img-preview col-sm-2">
                     <img src="" alt="">
                 </div>
 
-                <div class="img-description col-sm-5">
+                <div class="img-description {% if collection %}col-sm-9 img-description-collection {% else %}col-sm-10{% endif %}">
                     <table>
                         <tr>
-                            <td>{{ form_label(image.path, null, {label_attr: {class: 'control-label'}}) }}</td>
+                            <td class="td-path">{{ form_label(image.path, null, {label_attr: {class: 'control-label'}}) }}</td>
                             <td>{{ form_widget(image.path, {attr: {class: 'arkounay-image-path'}}) }}</td>
                         </tr>
-                        <tr>
-                            <td>{{ form_label(image.alt, null, {label_attr: {class: 'control-label'}}) }}</td>
-                            <td>{{ form_widget(image.alt, {attr: {class: 'arkounay-image-alt'}}) }}</td>
-                        </tr>
+
+                        {% if image.vars.allow_alt %}
+                            <tr>
+                                <td>{{ form_label(image.alt, null, {label_attr: {class: 'control-label'}}) }}</td>
+                                <td>{{ form_widget(image.alt, {attr: {class: 'arkounay-image-alt'}}) }}</td>
+                            </tr>
+                        {% endif %}
                     </table>
+
+                    <div class="upload {% if not image.vars.allow_alt %}upload-no-alt{% endif %}">
+                        <button class="btn btn-default btn-sm arkounay-image-button-upload" type="button"><i class="fa fa-upload"></i> {{ 'arkounay.browse'|trans }} </button>
+                        {{ form_widget(image.file) }}
+                        {# <button class="btn btn-default btn-sm" type="button"><i class="fa fa-download"></i> Choisir à partir du serveur</button> #}
+                    </div>
+
+                    {% if collection %}
+                        <div class="actions pull-right">
+                            <a href="#" class="js-remove-collection btn btn-default collection-remove collection-action"><span class="glyphicon glyphicon-remove"></span></a>
+                        </div>
+                    {% endif %}
                 </div>
 
-                <div class="col-sm-3 upload">
-                    <button class="btn btn-default btn-sm arkounay-image-button-upload" type="button"><i class="fa fa-upload"></i> {{ 'arkounay.browse'|trans }} </button>
-                    {{ form_widget(image.file) }}
-                    {# <button class="btn btn-default btn-sm" type="button"><i class="fa fa-download"></i> Choisir à partir du serveur</button> #}
-                    <files rel=""></files>
-                </div>
-                {% if collection %}
-                    <div class="actions pull-right">
-                        <a href="#" class="js-remove-collection btn btn-default collection-remove collection-action"><span class="glyphicon glyphicon-remove"></span></a>
-                    </div>
-                {% endif %}
+
                 <progress></progress>
             </div>
         </div>

@@ -4,14 +4,12 @@ namespace Arkounay\ImageBundle\Type;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Doctrine\DBAL\Types\ArrayType;
 use Doctrine\DBAL\Types\JsonArrayType;
 use Arkounay\ImageBundle\Entity\Image;
 
 class JsonImagesType extends JsonArrayType
 {
     const TYPE = 'json_images';
-
 
     public function getName()
     {

@@ -1,5 +1,6 @@
 arkounay.browse: 'Parcourir...'
-Path: 'Chemin'
+Path: 'Chemin :'
 File: 'Fichier'
-Alt: 'Alt'
+Alt: 'Alt :'
 Add: 'Ajouter'
+arkounay.image.path.placeholder: 'Aucune image'

@@ -3,7 +3,6 @@
 namespace Arkounay\ImageBundle\Type;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Doctrine\DBAL\Types\ArrayType;
 use Doctrine\DBAL\Types\JsonArrayType;
 use Arkounay\ImageBundle\Entity\Image;
 

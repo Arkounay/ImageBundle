@@ -1,33 +1,8 @@
-// Refresh thumbnails :
-function readURL(input, $img) {
-
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $img.show();
-            $img.attr('src', e.target.result);
-        };
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-function refreshThumbnail(){
-    $(".form-with-image .form-image input[type=file]").change(function(){
-        readURL(this, $(this).closest('.row').find('.js-img'));
-    });
-}
-
-refreshThumbnail();
-
 $(function(){
 
     function updateImageFromPath($pacImage) {
         var val = $pacImage.find('.arkounay-image-path').val();
-        if (val !== '') {
-            $pacImage.find('img').attr('src', val);
-        }
+        $pacImage.find('img').attr('src', val);
     }
 
     function submitFile(file, $image) {
@@ -110,16 +85,19 @@ $(function(){
         updateImageFromPath($(el));
     });
 
-    var $collection = $('.arkounay-image-collection');
-    if ($collection.length) {
-        $collection.collection({
+    $('.arkounay-image-collection').each(function(){
+        $this = $(this);
+        $this.collection({
+            max: $this.data('max'),
+            min: $this.data('min'),
+            init_with_n_elements: $this.data('init-with-n-elements'),
             up: '<a href="#">&#x25B2;</a>',
             down: '<a href="#">&#x25BC;</a>',
             add: '<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> ' + addStr + '</a>',
             remove: '<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>',
             duplicate: '<a href="#">[ # ]</a>',
-            add_at_the_end: true
+            add_at_the_end: $this.data('add-at-the-end')
         });
-    }
+    });
 
 });

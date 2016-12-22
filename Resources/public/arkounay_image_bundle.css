@@ -3,20 +3,27 @@
     background-color: rgba(255, 255, 255, 0.85);
 }
 
+.arkounay-image-collection .row {
+    cursor: move;
+}
+
 .arkounay-image.ui-sortable-helper {
     box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
 }
 
 .arkounay-image-list .ui-state-highlight {
     background-color: #fffad7;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
 }
-
 
 .arkounay-image-file-input {
     display: none !important;
 }
 
+.arkounay-image label {
+    white-space: nowrap;
+}
 .arkounay-image progress {
     width: 100%;
     display: block;
@@ -37,8 +44,8 @@
 }
 
 .arkounay-image-list .arkounay-image {
-    /*height: 81px;*/
-    padding-top: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     border: 1px solid #cccccc;
     margin-bottom: 5px;
 }
@@ -55,34 +62,65 @@
 
 .arkounay-image-list .actions .collection-remove {
     position: relative;
-    right: 15px;
+    right: 0;
     border-radius: 0;
     border: none;
-    bottom: 2px;
+    bottom: 5px;
 }
 
 .arkounay-image .img-preview {
     text-align: center;
+    border: 1px solid #F0F0F0;
+    min-height: 60px;
 }
 
 .arkounay-image .img-description table {
-    width: 100%;
+    float: left;
+    width: calc(100% - 110px);
+    min-height: 60px;
+}
+
+.arkounay-image .td-path {
+    max-width: 35px;
+}
+
+.arkounay-image .img-description.img-description-collection table {
+    width: calc(100% - 160px);
 }
 
 .arkounay-image table td {
     padding-bottom: 3px;
+    text-align: center;
 }
 
 .arkounay-image .table-sort {
     position: relative;
     top: 12px;
+    margin: 0 auto;
+}
+
+.arkounay-image .table-sort .table-sort-up {
+    height: 15px;
 }
 
 .arkounay-image .upload {
-    margin-top: 5px;
+    min-height: 60px;
+    width: 110px;
+    float: left;
 }
 
 .arkounay-image .upload .arkounay-image-button-upload {
-    display: block;
-    margin-bottom: 3px;
+    height: 34px;
+    margin: 0 0 3px 5px;
+}
+
+.arkounay-image .upload-no-alt {
+    padding-top: 10px;
+    margin-top: 1px;
+}
+
+.arkounay-image .btn-x-sm {
+    font-size: 11px;
+    padding: 1px 7px;
+    margin-left: 10px;
 }

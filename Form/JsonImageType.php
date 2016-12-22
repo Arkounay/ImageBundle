@@ -4,10 +4,11 @@ namespace Arkounay\ImageBundle\Form;
 
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class JsonImageType extends AbstractType
@@ -18,6 +19,7 @@ class JsonImageType extends AbstractType
         $builder
             ->add('path', TextType::class, [
                 'required' => false,
+                'attr' => ['placeholder' => 'arkounay.image.path.placeholder', 'readonly' => $options['path_readonly']],
             ])
             ->add('alt', TextType::class, [
                 'required' => false
@@ -35,9 +37,21 @@ class JsonImageType extends AbstractType
         $resolver->setDefaults([
             'required' => false,
             'data_class' => 'Arkounay\ImageBundle\Entity\Image',
-            'by_reference' => false
+            'by_reference' => false,
+            'allow_alt' => true,
+            'path_readonly' => false
         ]);
     }
+
+    public function buildView(FormView $view, FormInterface $form, array $options)
+    {
+        parent::buildView($view, $form, $options);
+        $view->vars = array_replace($view->vars, [
+            'allow_alt' => $options['allow_alt'],
+        ]);
+    }
+
+
 
     public function getBlockPrefix()
     {
