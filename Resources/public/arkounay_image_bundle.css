@@ -4,7 +4,7 @@
     border: 1px solid transparent;
 }
 
-.arkounay-image-collection .row {
+.arkounay-image-collection .arkounay-image {
     cursor: move;
 }
 
@@ -20,6 +20,10 @@
 
 .arkounay-image-file-input {
     display: none !important;
+}
+
+.arkounay-image input {
+    width: 100%;
 }
 
 .arkounay-image progress {
@@ -39,7 +43,7 @@
 
 .arkounay-image.is-dragover {
     background-color: #ffffc7;
-    border: 1px dashed #ababab;
+    border: 1px dashed #ababab !important;
 }
 
 .arkounay-image-list .arkounay-image {
@@ -121,6 +125,18 @@
     width: 100%;
     float: left;
     padding-left: 85px;
+}
+
+.arkounay-image-list .images-add {
+    text-align: right;
+    border: 1px solid transparent;
+    transition: background-color 200ms;
+    display: block;
+}
+
+.arkounay-image-list .images-add.is-dragover{
+    background-color: #ffffc7;
+    border: 1px dashed #ababab;
 }
 
 .arkounay-image .upload {

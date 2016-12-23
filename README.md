@@ -24,7 +24,7 @@
         
             <link rel="stylesheet" href="{{ asset('bundles/arkounayimage/arkounay_image_bundle.css') }}">
 
-    - JS (**requires [jQuery](https://jquery.com/), [ninsuo/symfony-collection](https://github.com/ninsuo/symfony-collection) and optionnaly [bootstrap](http://getbootstrap.com/)**):
+    - JS (**requires [jQuery](https://jquery.com/), [ninsuo/symfony-collection](https://github.com/ninsuo/symfony-collection) and optionnaly [bootstrap](http://getbootstrap.com/) and [jQuery UI](https://jqueryui.com/)**):
     
             {# Import jQuery: #}
                 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -92,8 +92,13 @@ Some [ninsuo/symfony-collection](https://github.com/ninsuo/symfony-collection)'s
 - `'init_with_n_elements' => 1`
 - `'add_at_the_end' => true`
 
-### Editing the form HTML
-Check `Resources/views/forms/fields.html.twig`
+### About the form HTML theme
+
+Include bootstrap's theme
+ 
+    {% form_theme form ':admin/includes:bootstrap_3_layout.html.twig' %}
+
+To override the widget theme, check `Resources/views/forms/fields.html.twig`.
 
 ### Other
 - Only `ROLE_ADMIN` can upload images

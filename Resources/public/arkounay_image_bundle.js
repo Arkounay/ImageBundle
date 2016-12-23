@@ -50,14 +50,15 @@ $(function(){
 
 
     var arkounayImageSel = '.arkounay-image';
+    var $document = $(document);
 
-    $(document).on('click', '.arkounay-image-button-upload', function (e) {
+    $document.on('click', '.arkounay-image-button-upload', function (e) {
         e.preventDefault();
         e.stopPropagation();
         $(this).closest('.arkounay-image').find('.arkounay-image-file-input').click();
     });
 
-    $(document).on('click', '.arkounay-image-button-erase', function (e) {
+    $document.on('click', '.arkounay-image-button-erase', function (e) {
         e.preventDefault();
         e.stopPropagation();
         var $imagePath = $(this).closest('.arkounay-image').find('.arkounay-image-path');
@@ -65,12 +66,13 @@ $(function(){
         $imagePath.change();
     });
 
-    $(document).on('change', '.arkounay-image-file-input', function () {
+    $document.on('change', '.arkounay-image-file-input', function () {
         var file = this.files[0];
         submitFile(file, $(this).closest('.arkounay-image'));
     });
 
-    $(document).on('drag dragstart dragend dragover dragenter dragleave drop', arkounayImageSel, function(e) {
+    // dragon & drop
+    $document.on('drag dragstart dragend dragover dragenter dragleave drop', arkounayImageSel, function(e) {
         e.preventDefault();
         e.stopPropagation();
     })
@@ -84,7 +86,41 @@ $(function(){
         submitFile(e.originalEvent.dataTransfer.files[0],  $(this))
     });
 
-    $(document).on('change', '.arkounay-image-path', function () {
+    var addImageSel = '.arkounay-image-list .images-add';
+    $document.on('drag dragstart dragend dragover dragenter dragleave drop', addImageSel, function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    })
+    .on('dragover dragenter', addImageSel, function() {
+        $(this).addClass('is-dragover');
+    })
+    .on('dragleave dragend drop', addImageSel, function() {
+        $(this).removeClass('is-dragover');
+    })
+    .on('drop', addImageSel, function(e) {
+        var previousIds = [];
+        $(this).closest('.arkounay-image-list').children().each(function(){
+            previousIds.push($(this).attr('id'));
+        });
+        $(this).find('a').click();
+        var newIds = [];
+        $(this).closest('.arkounay-image-list').children().each(function(){
+            newIds.push($(this).attr('id'));
+        });
+
+        var id;
+        $.grep(newIds, function(el) {
+            if (el !== undefined && $.inArray(el, previousIds) == -1 && !$('#' + el).hasClass('images-add')) {
+                id = el;
+            }
+        });
+
+        if (id !== undefined) {
+            submitFile(e.originalEvent.dataTransfer.files[0],  $('#' + id).closest('.arkounay-image'));
+        }
+    });
+
+    $document.on('change', '.arkounay-image-path', function () {
         updateImageFromPath($(this).closest('.arkounay-image'));
     });
 
@@ -94,15 +130,15 @@ $(function(){
     });
 
     $('.arkounay-image-collection').each(function(){
-        $this = $(this);
+        var $this = $(this);
         $this.collection({
             max: $this.data('max'),
             min: $this.data('min'),
             init_with_n_elements: $this.data('init-with-n-elements'),
-            up: '<a href="#">&#x25B2;</a>',
-            down: '<a href="#">&#x25BC;</a>',
-            add: '<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> ' + addStr + '</a>',
-            remove: '<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>',
+            // up: false,
+            // down: false,
+            add: '<span class="images-add"><a href="#" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> ' + addStr + '</a></span>',
+            // remove: false,
             duplicate: '<a href="#">[ # ]</a>',
             add_at_the_end: $this.data('add-at-the-end')
         });
