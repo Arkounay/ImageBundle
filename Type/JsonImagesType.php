@@ -21,16 +21,18 @@ class JsonImagesType extends JsonArrayType
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        if (null === $value) {
+        if (empty($value)) {
             return null;
         }
 
+        if (is_array($value)) {
+            $value = new ArrayCollection($value);
+        }
+
         /** @var ArrayCollection|Image[] $value */
-        if (!empty($value)) {
-            foreach ($value as $item) {
-                if ($item === null || $item->getPath() === null) {
-                    $value->removeElement($item);
-                }
+        foreach ($value as $item) {
+            if ($item === null || $item->getPath() === null) {
+                $value->removeElement($item);
             }
         }
 
@@ -42,7 +44,7 @@ class JsonImagesType extends JsonArrayType
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        if ($value === null || $value === '') {
+        if (empty($value)) {
             return new ArrayCollection([new Image()]);
         }
 

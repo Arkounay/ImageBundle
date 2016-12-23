@@ -22,7 +22,8 @@ class JsonImageType extends AbstractType
                 'attr' => ['placeholder' => 'arkounay.image.path.placeholder', 'readonly' => $options['path_readonly']],
             ])
             ->add('alt', TextType::class, [
-                'required' => false
+                'required' => false,
+                'attr' => ['placeholder' => 'arkounay.image.alt.placeholder']
             ])
             ->add('file', FileType::class, [
                 'attr' => ['class' => 'arkounay-image-file-input'],
