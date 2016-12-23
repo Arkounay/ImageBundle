@@ -1,6 +1,7 @@
 .arkounay-image {
     transition: box-shadow 200ms;
     background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid transparent;
 }
 
 .arkounay-image-collection .row {
@@ -22,7 +23,8 @@
 }
 
 .arkounay-image progress {
-    width: 100%;
+    width: 95%;
+    height: 7px;
     display: block;
 }
 
@@ -67,12 +69,14 @@
 
 .arkounay-image .img-preview {
     text-align: center;
-    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .arkounay-image .img-description table {
     float: left;
-    width: calc(100% - 110px);
+    width: 100%;
     min-height: 60px;
 }
 
@@ -97,26 +101,37 @@
     overflow: hidden;
 }
 
+.arkounay-image .td-label label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 .arkounay-image .table-sort {
     position: relative;
     top: 12px;
     margin: 0 auto;
+    display: none;
 }
 
 .arkounay-image .table-sort .table-sort-up {
     height: 15px;
 }
 
-.arkounay-image .upload {
-    min-height: 60px;
-    width: 110px;
+.arkounay-browse-group {
+    width: 100%;
     float: left;
+    padding-left: 85px;
 }
 
-.arkounay-image .upload .arkounay-image-button-upload {
+.arkounay-image .upload {
+    min-height: 60px;
+    /*width: 110px;*/
+}
+
+/*.arkounay-image .upload .arkounay-image-button-upload {
     height: 34px;
     margin: 0 0 3px 5px;
-}
+}*/
 
 .arkounay-image .upload-no-alt {
     padding-top: 10px;
@@ -127,4 +142,31 @@
     font-size: 11px;
     padding: 1px 7px;
     margin-left: 10px;
+}
+
+.arkounay-image .img-description {
+    margin-top: 5px;
+}
+
+@media (min-width: 768px) {
+    .arkounay-image .img-preview {
+        min-height: 70px;
+    }
+
+    .arkounay-image .table-sort {
+        display: table;
+    }
+
+    .arkounay-image .img-description {
+        margin-top: 0;
+    }
+
+    .arkounay-image .img-description table {
+        width: calc(100% - 150px);
+    }
+
+    .arkounay-browse-group {
+        padding-left: 0;
+        width: 150px;
+    }
 }

@@ -19,10 +19,10 @@ $(function(){
                 if (xhr.upload) {
                     xhr.upload.addEventListener('progress', function (e) {
                         if (e.lengthComputable) {
-                            $progress.show();
+                            $progress.fadeIn('fast');
                             $progress.attr({value: e.loaded, max: e.total});
                         } else {
-                            $progress.hide();
+                            $progress.fadeOut('fast');
                         }
                     }, false);
                 }
@@ -35,7 +35,7 @@ $(function(){
                 } else {
                     alert("Le fichier spécifié (" + file.name + ") n'a pas pu être envoyé sur le serveur.\n\nSeules les images sont autorisés.");
                 }
-                $progress.hide();
+                $progress.fadeOut('fast');
             },
             error: function() {
                 alert("Une erreur est survenue lors de l'envoi du fichier " + file.name + ".");
@@ -55,6 +55,14 @@ $(function(){
         e.preventDefault();
         e.stopPropagation();
         $(this).parent().find('.arkounay-image-file-input').click();
+    });
+
+    $(document).on('click', '.arkounay-image-button-erase', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $imagePath = $(this).closest('.arkounay-image').find('.arkounay-image-path');
+        $imagePath.val('');
+        $imagePath.change();
     });
 
     $(document).on('change', '.arkounay-image-file-input', function () {
