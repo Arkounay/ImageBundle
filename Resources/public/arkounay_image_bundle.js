@@ -54,7 +54,7 @@ $(function(){
     $(document).on('click', '.arkounay-image-button-upload', function (e) {
         e.preventDefault();
         e.stopPropagation();
-        $(this).parent().find('.arkounay-image-file-input').click();
+        $(this).closest('.arkounay-image').find('.arkounay-image-file-input').click();
     });
 
     $(document).on('click', '.arkounay-image-button-erase', function (e) {
