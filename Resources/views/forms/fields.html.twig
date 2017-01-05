@@ -71,13 +71,13 @@
                     </table>
 
                     {% if collection %}
-                        <button class="btn btn-default btn-sm arkounay-image-button-upload" type="button"><span class="glyphicon glyphicon glyphicon-upload"></span> {{ 'arkounay.browse'|trans }} </button>
+                        <button class="btn btn-default btn-sm arkounay-image-button-upload" type="button"><span class="glyphicon glyphicon-upload"></span> {{ 'arkounay.browse'|trans }} </button>
                         {{ form_widget(image.file) }}
                     {% else %}
                         <div class="upload {% if not image.vars.allow_alt %}upload-no-alt{% endif %}">
                             <div class="btn-group arkounay-browse-group" role="group">
-                                <button class="btn btn-default btn-sm arkounay-image-button-erase" type="button"><span class="glyphicon glyphicon glyphicon glyphicon-erase"></span> </button>
-                                <button class="btn btn-default btn-sm arkounay-image-button-upload" type="button"><span class="glyphicon glyphicon glyphicon-upload"></span> {{ 'arkounay.browse'|trans }} </button>
+                                <button class="btn btn-default btn-sm arkounay-image-button-erase" type="button"><span class="glyphicon glyphicon-erase"></span> </button>
+                                <button class="btn btn-default btn-sm arkounay-image-button-upload" type="button"><span class="glyphicon glyphicon-upload"></span> {{ 'arkounay.browse'|trans }} </button>
                             </div>
                             {{ form_widget(image.file) }}
                             {# <button class="btn btn-default btn-sm" type="button"><i class="fa fa-download"></i> Choisir à partir du serveur</button> #}
