@@ -27,8 +27,7 @@
     - JS (**requires [jQuery](https://jquery.com/), [ninsuo/symfony-collection](https://github.com/ninsuo/symfony-collection) and optionnaly [bootstrap](http://getbootstrap.com/) and [jQuery UI](https://jqueryui.com/)**):
     
             {# Import jQuery: #}
-                <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-            {% endif %}
+            <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
                
             {# Then the default bundle's JavaScript: #}
             {% include '@ArkounayImage/assets/include_js.html.twig' %}
