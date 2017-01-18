@@ -101,8 +101,8 @@ To override the widget theme, check `Resources/views/forms/fields.html.twig`.
 
 ### Other
 - Only `ROLE_ADMIN` can upload images
-- This bundle works with [EasyAdminBundle](https://github.com/javiereguiluz/EasyAdminBundle), you can for example add multiple images by specifying the form:
+- This bundle works with [EasyAdminBundle](https://github.com/javiereguiluz/EasyAdminBundle), you can for example add multiple images by specifying the proper type:
 
 
-    { property: 'imageCollection', type: 'Arkounay\ImageBundle\Form\JsonImagesType', type_options: {allow_add: true} }
+        { property: 'imageCollection', type: 'Arkounay\ImageBundle\Form\JsonImagesType', type_options: {allow_add: true} }
 
