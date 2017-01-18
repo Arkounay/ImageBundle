@@ -88,11 +88,6 @@
     max-width: 35px;
 }
 
-.arkounay-image .img-description label {
-    width: 100%;
-    padding: 0;
-}
-
 .arkounay-image .img-description.img-description-collection table {
     width: calc(100% - 160px);
 }

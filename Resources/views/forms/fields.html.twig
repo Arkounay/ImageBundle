@@ -42,10 +42,10 @@
                     <div class="col-sm-1">
                         <table class="table-sort">
                             <tr class="table-sort-up">
-                                <td><a href="#" class="collection-up btn btn-default btn-x-sm"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+                                <td><a href="#" class="collection-up btn btn-default btn-x-sm"><span class="fa fa-chevron-up"></span></a></td>
                             </tr>
                             <tr class="table-sort-down">
-                                <td><a href="#" class="collection-down btn btn-default btn-x-sm"><span class="glyphicon glyphicon-chevron-down"></span></a></td>
+                                <td><a href="#" class="collection-down btn btn-default btn-x-sm"><span class="fa fa-chevron-down"></span></a></td>
                             </tr>
                         </table>
                     </div>
@@ -71,13 +71,13 @@
                     </table>
 
                     {% if collection %}
-                        <button class="btn btn-default btn-sm arkounay-image-button-upload" type="button"><span class="glyphicon glyphicon-upload"></span> {{ 'arkounay.browse'|trans }} </button>
+                        <button class="btn btn-default btn-sm arkounay-image-button-upload" type="button"><span class="fa fa-upload"></span> {{ 'arkounay.browse'|trans }} </button>
                         {{ form_widget(image.file) }}
                     {% else %}
                         <div class="upload {% if not image.vars.allow_alt %}upload-no-alt{% endif %}">
                             <div class="btn-group arkounay-browse-group" role="group">
-                                <button class="btn btn-default btn-sm arkounay-image-button-erase" type="button"><span class="glyphicon glyphicon-erase"></span> </button>
-                                <button class="btn btn-default btn-sm arkounay-image-button-upload" type="button"><span class="glyphicon glyphicon-upload"></span> {{ 'arkounay.browse'|trans }} </button>
+                                <button class="btn btn-danger btn-sm arkounay-image-button-erase" type="button"><span class="fa fa-remove"></span> </button>
+                                <button class="btn btn-default btn-sm arkounay-image-button-upload" type="button"><span class="fa fa-upload"></span> {{ 'arkounay.browse'|trans }} </button>
                             </div>
                             {{ form_widget(image.file) }}
                             {# <button class="btn btn-default btn-sm" type="button"><i class="fa fa-download"></i> Choisir à partir du serveur</button> #}
@@ -86,7 +86,7 @@
 
                     {% if collection %}
                         <div class="actions pull-right">
-                            <a href="#" class="js-remove-collection btn btn-default collection-remove collection-action"><span class="glyphicon glyphicon-remove"></span></a>
+                            <a href="#" class="js-remove-collection btn btn-danger collection-remove collection-action"><span class="fa fa-remove"></span></a>
                         </div>
                     {% endif %}
                 </div>

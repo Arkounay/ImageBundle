@@ -24,7 +24,7 @@
         
             <link rel="stylesheet" href="{{ asset('bundles/arkounayimage/arkounay_image_bundle.css') }}">
 
-    - JS (**requires [jQuery](https://jquery.com/), [ninsuo/symfony-collection](https://github.com/ninsuo/symfony-collection) and optionnaly [bootstrap](http://getbootstrap.com/) and [jQuery UI](https://jqueryui.com/)**):
+    - JS (**requires [jQuery](https://jquery.com/), [ninsuo/symfony-collection](https://github.com/ninsuo/symfony-collection) and optionally [bootstrap](http://getbootstrap.com/), [Font Awesome](http://fontawesome.io/) and [jQuery UI](https://jqueryui.com/)**):
     
             {# Import jQuery: #}
             <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -101,4 +101,8 @@ To override the widget theme, check `Resources/views/forms/fields.html.twig`.
 
 ### Other
 - Only `ROLE_ADMIN` can upload images
+- This bundle works with [EasyAdminBundle](https://github.com/javiereguiluz/EasyAdminBundle), you can for example add multiple images by specifying the form:
+
+
+    { property: 'imageCollection', type: 'Arkounay\ImageBundle\Form\JsonImagesType', type_options: {allow_add: true} }
 

@@ -76,49 +76,49 @@ $(function(){
         e.preventDefault();
         e.stopPropagation();
     })
-    .on('dragover dragenter', arkounayImageSel, function() {
-        $(this).addClass('is-dragover');
-    })
-    .on('dragleave dragend drop', arkounayImageSel, function() {
-        $(this).removeClass('is-dragover');
-    })
-    .on('drop', arkounayImageSel, function(e) {
-        submitFile(e.originalEvent.dataTransfer.files[0],  $(this))
-    });
+        .on('dragover dragenter', arkounayImageSel, function() {
+            $(this).addClass('is-dragover');
+        })
+        .on('dragleave dragend drop', arkounayImageSel, function() {
+            $(this).removeClass('is-dragover');
+        })
+        .on('drop', arkounayImageSel, function(e) {
+            submitFile(e.originalEvent.dataTransfer.files[0],  $(this))
+        });
 
     var addImageSel = '.arkounay-image-list .images-add';
     $document.on('drag dragstart dragend dragover dragenter dragleave drop', addImageSel, function(e) {
         e.preventDefault();
         e.stopPropagation();
     })
-    .on('dragover dragenter', addImageSel, function() {
-        $(this).addClass('is-dragover');
-    })
-    .on('dragleave dragend drop', addImageSel, function() {
-        $(this).removeClass('is-dragover');
-    })
-    .on('drop', addImageSel, function(e) {
-        var previousIds = [];
-        $(this).closest('.arkounay-image-list').children().each(function(){
-            previousIds.push($(this).attr('id'));
-        });
-        $(this).find('a').click();
-        var newIds = [];
-        $(this).closest('.arkounay-image-list').children().each(function(){
-            newIds.push($(this).attr('id'));
-        });
+        .on('dragover dragenter', addImageSel, function() {
+            $(this).addClass('is-dragover');
+        })
+        .on('dragleave dragend drop', addImageSel, function() {
+            $(this).removeClass('is-dragover');
+        })
+        .on('drop', addImageSel, function(e) {
+            var previousIds = [];
+            $(this).closest('.arkounay-image-list').children().each(function(){
+                previousIds.push($(this).attr('id'));
+            });
+            $(this).find('a').click();
+            var newIds = [];
+            $(this).closest('.arkounay-image-list').children().each(function(){
+                newIds.push($(this).attr('id'));
+            });
 
-        var id;
-        $.grep(newIds, function(el) {
-            if (el !== undefined && $.inArray(el, previousIds) == -1 && !$('#' + el).hasClass('images-add')) {
-                id = el;
+            var id;
+            $.grep(newIds, function(el) {
+                if (el !== undefined && $.inArray(el, previousIds) == -1 && !$('#' + el).hasClass('images-add')) {
+                    id = el;
+                }
+            });
+
+            if (id !== undefined) {
+                submitFile(e.originalEvent.dataTransfer.files[0],  $('#' + id).closest('.arkounay-image'));
             }
         });
-
-        if (id !== undefined) {
-            submitFile(e.originalEvent.dataTransfer.files[0],  $('#' + id).closest('.arkounay-image'));
-        }
-    });
 
     $document.on('change', '.arkounay-image-path', function () {
         updateImageFromPath($(this).closest('.arkounay-image'));
@@ -135,10 +135,7 @@ $(function(){
             max: $this.data('max'),
             min: $this.data('min'),
             init_with_n_elements: $this.data('init-with-n-elements'),
-            // up: false,
-            // down: false,
-            add: '<span class="images-add"><a href="#" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> ' + addStr + '</a></span>',
-            // remove: false,
+            add: '<span class="images-add"><a href="#" class="btn btn-default"><span class="fa fa-plus"></span> ' + addStr + '</a></span>',
             duplicate: '<a href="#">[ # ]</a>',
             add_at_the_end: $this.data('add-at-the-end')
         });
