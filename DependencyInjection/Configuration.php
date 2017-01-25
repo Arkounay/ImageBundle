@@ -18,11 +18,17 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('arkounay_image');
-
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode = $treeBuilder->root('image_bundle');
+        $rootNode
+            ->children()
+                ->arrayNode('roles')
+                    ->prototype('scalar')
+                    ->defaultValue('ROLE_ADMIN')
+                    ->end()
+                ->defaultValue(['ROLE_ADMIN'])
+                ->end()
+            ->end()
+        ->end();
 
         return $treeBuilder;
     }

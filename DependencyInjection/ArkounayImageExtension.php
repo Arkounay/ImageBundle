@@ -22,6 +22,8 @@ class ArkounayImageExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        $container->setParameter('arkounay_image_bundle.roles', $config['roles']);
+
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         // $loader->load('services.yml');
 

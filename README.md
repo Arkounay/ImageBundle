@@ -100,7 +100,11 @@ Include bootstrap's theme
 To override the widget theme, check `Resources/views/forms/fields.html.twig`.
 
 ### Other
-- Only `ROLE_ADMIN` can upload images
+- By default, only `ROLE_ADMIN` can upload images. You can specify roles in config.yml, ie:
+
+        arkounay_image:
+            roles: ['ROLE_SUPER_ADMIN']
+            
 - This bundle works with [EasyAdminBundle](https://github.com/javiereguiluz/EasyAdminBundle), you can for example add multiple images by specifying the proper type:
 
 
