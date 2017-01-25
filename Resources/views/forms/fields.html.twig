@@ -1,13 +1,15 @@
 {% block arkounay_image_widget %}
+    {% import _self as arkounay_image %}
     {% spaceless %}
-        {{ _self.render_image(form, false) }}
+        {{ arkounay_image.render_image(form, false) }}
     {% endspaceless %}
 {% endblock %}
 
 {% block arkounay_images_widget %}
+    {% import _self as arkounay_image %}
     {% spaceless %}
         {% if prototype is defined %}
-            {% set attr = attr|merge({'data-prototype': _self.render_image(prototype)}) %}
+            {% set attr = attr|merge({'data-prototype': arkounay_image.render_image(prototype)}) %}
             {% set attr = attr|merge({'data-prototype-name': prototype.vars.name}) %}
         {% endif %}
         {% set attr = attr|merge({'data-allow-add': allow_add ? 1 : 0}) %}
@@ -20,7 +22,7 @@
 
         <div id="{{ form.vars.id }}" class="media-list arkounay-image-list arkounay-image-collection" {% for k, v in attr %} {{ k }}="{{ v|e }}"{% endfor %}>
         {% for image in form %}
-            {{ _self.render_image(image) }}
+            {{ arkounay_image.render_image(image) }}
         {% endfor %}
         </div>
 
