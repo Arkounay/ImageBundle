@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Class AjaxController
  * @package Arkounay\ImageBundle\Controller
- * @Security("is_granted('ROLE_ADMIN')")
  */
 class AjaxController extends Controller
 {
