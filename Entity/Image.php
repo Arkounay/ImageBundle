@@ -53,10 +53,18 @@ class Image implements \JsonSerializable
             'alt' => $this->alt
         ];
     }
-
+    
     public function getFilePath()
     {
-        return substr($this->path, 1);
+        if (!empty($this->path) && $this->path[0] === '/') {
+            return substr($this->path, 1);
+        }
+        return $this->path;
+    }
+
+    public function __toString()
+    {
+        return $this->path;
     }
 
 
