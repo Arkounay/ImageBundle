@@ -1,4 +1,4 @@
-# Work In Progress
+# Not maintained. Use [artgris/FileManagerBundle](https://github.com/artgris/FileManagerBundle) with [artgris/MediaBundle](https://github.com/artgris/MediaBundle) instead.
 
 ## Arkounay Image Bundle - Symfony Easier Doctrine image management
 
